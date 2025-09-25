@@ -1,0 +1,25 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: microservice
+  application:
+    name: RATING-SERVICE
+  cloud:
+    compatibility-verifier:
+      enabled: false
+
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+
+    prefer-ip-address: true
