@@ -1,19 +1,26 @@
 package com.lcwd.user.service.services.impl;
 
+import com.lcwd.user.service.entities.Hotel;
+import com.lcwd.user.service.entities.Rating;
 import com.lcwd.user.service.entities.User;
 import com.lcwd.user.service.exception.ResourceNotFoundException;
+import com.lcwd.user.service.external.HotelServiceClient;
+import com.lcwd.user.service.external.RatingServiceClient;
 import com.lcwd.user.service.repositories.UserRepository;
 import com.lcwd.user.service.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-
+@Autowired
+private HotelServiceClient hotelServiceClient;
+@Autowired
+private RatingServiceClient ratingServiceClient;
     @Autowired
     private UserRepository userRepository;
    @Override
@@ -28,10 +35,20 @@ public class UserServiceImpl implements UserService {
    public  List<User> getAllUser(){
         return userRepository.findAll();
     }
+
+
 @Override
     public User getUserBYId(String userId){
-       return userRepository.findById(userId)
+       User user= userRepository.findById(userId)
                .orElseThrow(()-> new ResourceNotFoundException("user not found " + userId));
+      ArrayList<Rating> ratings = ratingServiceClient.getRatingsByUserId(userId);
+
+    ratings.forEach(rating -> {
+        Hotel hotel = hotelServiceClient.getHotelById(rating.getHotelId());
+        rating.setHotel(hotel);
+    });
+      user.setRatings(ratings);
+      return user;
     }
 
 

@@ -33,20 +33,20 @@ public class HotelController {
         return ResponseEntity.ok(allHotel);
     }
 
-    @GetMapping("/getById/{Id}")
-    public Hotel findById(@PathVariable String Id){
-        return hotelService.findHotelById(Id);
+    @GetMapping("/getById/{id}")
+    public Hotel findHotelById(@PathVariable String id){
+        return hotelService.findHotelById(id);
     }
 
-    @PutMapping("/update/{Id}")
-    public  Hotel updateHotelById(String Id,Hotel hotel){
-        return hotelService.UpdateHotelById(Id,hotel);
+    @PutMapping("/update/{hotelId}")
+    public  Hotel updateHotelById(String id,Hotel hotel){
+        return hotelService.UpdateHotelById(id,hotel);
     }
 
 
-    @DeleteMapping("/deletById/{Id}")
-    public ResponseEntity<String> deletHotelById(String Id){
-        hotelService.deletHotelById(Id);
+    @DeleteMapping("/deletById/{id}")
+    public ResponseEntity<String> deletHotelById(String id){
+        hotelService.deletHotelById(id);
 
         return ResponseEntity.status(HttpStatus.OK).body("hotel deleted successfully");
 

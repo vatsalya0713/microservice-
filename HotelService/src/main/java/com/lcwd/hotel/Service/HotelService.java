@@ -24,16 +24,16 @@ public class HotelService {
         return hotelRepository.findAll();
     }
 
-    public Hotel findHotelById(String Id){
+    public Hotel findHotelById(String id){
 
 
 
-        return hotelRepository.findHotelById(Id).orElseThrow(()-> new RuntimeException("Hotel not found "+Id));
+        return hotelRepository.findHotelById(id).orElseThrow(()-> new RuntimeException("Hotel not found "+id));
     }
 
-    public Hotel UpdateHotelById(String Id,Hotel hotel){
+    public Hotel UpdateHotelById(String id,Hotel hotel){
 
-        Hotel data =hotelRepository.findHotelById(Id).orElseThrow(()-> new RuntimeException("Hotel not found"));
+        Hotel data =hotelRepository.findHotelById(id).orElseThrow(()-> new RuntimeException("Hotel not found"));
 
         data.setName(hotel.getName());
         data.setLocation(hotel.getLocation());
@@ -42,8 +42,8 @@ public class HotelService {
 
     }
 
-    public  void deletHotelById(String Id){
-        hotelRepository.deleteById(Id);
+    public  void deletHotelById(String id){
+        hotelRepository.deleteById(id);
 
     }
 
