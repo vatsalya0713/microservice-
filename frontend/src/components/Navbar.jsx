@@ -13,7 +13,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
     <aside className="sidebar">
       <div className="logo">
         <Hotel size={28} className="logo-icon" style={{ stroke: 'url(#logo-grad)' }} />
-        <span>BillingPro</span>
+        <span>HotelStars</span>
         {/* SVG Gradient definition for lucide icon gradient fill/stroke */}
         <svg width="0" height="0">
           <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">

@@ -77,7 +77,7 @@ export default function Dashboard({ triggerToast }) {
     <div>
       <div className="page-header">
         <div className="page-title">
-          <h1>Welcome to BillingPro Dashboard</h1>
+          <h1>Welcome to HotelStars Dashboard</h1>
           <p>Real-time analytics for your Hotel Rating SaaS Microservices.</p>
         </div>
       </div>
