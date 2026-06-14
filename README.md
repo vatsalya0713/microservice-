@@ -1,4 +1,4 @@
-# 🏗️ Enterprise Hotel Rating Microservices System
+# 🏗️ StayGrade: Enterprise Hotel Rating Microservices System
 
 A production-ready microservices-based hotel rating and management platform built with Spring Boot, Spring Cloud, and React. This project demonstrates distributed services communication, routing, Service Discovery, Feign Clients, dynamic persistence cross-mapping, and a glassmorphic dashboard UI.
 
