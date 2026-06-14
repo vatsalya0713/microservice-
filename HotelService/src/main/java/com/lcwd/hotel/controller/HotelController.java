@@ -39,17 +39,13 @@ public class HotelController {
     }
 
     @PutMapping("/update/{hotelId}")
-    public  Hotel updateHotelById(String id,Hotel hotel){
-        return hotelService.UpdateHotelById(id,hotel);
+    public Hotel updateHotelById(@PathVariable("hotelId") String id, @RequestBody Hotel hotel){
+        return hotelService.UpdateHotelById(id, hotel);
     }
 
-
     @DeleteMapping("/deletById/{id}")
-    public ResponseEntity<String> deletHotelById(String id){
+    public ResponseEntity<String> deletHotelById(@PathVariable("id") String id){
         hotelService.deletHotelById(id);
-
         return ResponseEntity.status(HttpStatus.OK).body("hotel deleted successfully");
-
-
     }
 }
